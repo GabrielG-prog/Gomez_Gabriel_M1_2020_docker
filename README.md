@@ -64,7 +64,8 @@ Conteneurisez la partie backend :
 Faire le Docker-Compose.yml
 Compose est un outil permettant de définir et d'exécuter des applications Docker multi-conteneurs.
 
-Il faut dire à Docker de créer un conteneur appelé client , en utilisant l'image webapp-client (qui est l'image que nous avons définie sur notre Dockerfile client) qui écoutera sur le port 3000 : 
+Il faut dire à Docker de créer un conteneur appelé client , en utilisant l'image app-client (qui est l'image que nous avons définie sur notre Dockerfile client) qui écoutera sur le port 3000.
+Ensuite, il faut dire qu'on souhaite créer un conteneur appelé api en utilisant l'image app-api (qui est l'image que nous avons définie sur notre API Dockerfile) qui sera à l'écoute sur le port 8080 :
 
 version: "3"
 services:
@@ -80,9 +81,6 @@ services:
             - api
         networks:
             webappnetwork
-            
-Ensuite, il faut dire qu'on souhaite créer un conteneur appelé api en utilisant l'image webapp-api (qui est l'image que nous avons définie sur notre API Dockerfile) qui sera à l'écoute sur le port 9000 :
-
     api:
         image: app-api
         restart: always
